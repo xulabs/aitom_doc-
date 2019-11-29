@@ -8,11 +8,14 @@ https://github.com/xulabs/projects/tree/master/autoencoder
 '''
 
 '''
-Keras need to be 2.1.x for autoencoder
+Requirements:
+- Keras need to be 2.1.x for autoencoder
+- run on GPU
 
 Step1:Prepare input dataset
 
-You can download the example dataset from {this will be added in the future}, extract it into your present working directory.
+You can download the example dataset from https://cmu.app.box.com/s/9hn3qqtqmivauus3kgtasg5uzlj53wxp/file/509296892992 into your present working directory.
+Note: This is not the dataset used in the paper, which will be added in the future.
 
 Here's four parameters and dataset format.
 1.A python pickle data file of CECT small subvolumes, this data file should be prepared as follows:
@@ -38,14 +41,28 @@ Step2 Train the auto encoder. Given the example dataset, you can use parameters1
 '''
 import aitom.classify.deep.unsupervised.autoencoder.autoencoder as AE
 
-parameters1 = ["example/subvolumes_example_2.pickle","None","False","4"]
-parameters2 = ["example/subvolumes_example_1.pickle","example/tomogram.rec","True","100"]
-#here's the 4 inputs
+# Note: these two datasets are missing for now
+# parameters1 = ["example/subvolumes_example_2.pickle", "None", "False", "4"]
+# parameters2 = ["example/subvolumes_example_1.pickle", "example/tomogram.rec", "True", "100"]
 
-d = AE.auto.pickle_load(parameters1[0])#pickle data file of CECT small subvolumes
-img_org_file = parameters1[1]#A tomogram file in .rec format, which can be None when pose normalization is not required
-pose = eval(parameters1[2])#Whether the optional pose normalization step should be applied  True or False
-clus_num = int(parameters1[3])# The number of clusters
+# This example dataset is generated in the particle picking tutorial
+single_particle_param = ['data/demo_single_particle_subvolumes.pickle', 'None', "False", 4]
+# demo dataset format is different, which has 2 kinds of particle and their templates
+multiple_particles_params = ['data/aitom_demo_subtomograms.pickle', 'None', "False", 4]
+
+parameters_demo = single_particle_param # choose one of the above 
+d = AE.auto.pickle_load(parameters_demo[0]) # pickle data file of CECT small subvolumes
+
+if parameters_demo == multiple_particles_params:  # TODO add multiparticle tutorial
+    # choose one particle and convert the data format
+    # d = d['5T2C_data']
+    # from aitom.classify.deep.unsupervised.autoencoder.autoencoder_util import subtomograms_to_subvolumes
+    # d = subtomograms_to_subvolumes(d)
+    pass
+
+img_org_file = parameters_demo[1]#A tomogram file in .rec format, which can be None when pose normalization is not required
+pose = eval(parameters_demo[2])#Whether the optional pose normalization step should be applied  True or False
+clus_num = int(parameters_demo[3])# The number of clusters
 
 
 AE.encoder_simple_conv_test(d=d, pose=pose, img_org_file=img_org_file, out_dir=AE.os.getcwd(), clus_num=clus_num)
@@ -90,7 +107,7 @@ sel_clus = {1: [3, 21, 28, 34, 38, 39, 43, 62, 63, 81, 86, 88],
 
 
 data_dir = os.getcwd()
-data_file = op_join(data_dir, parameters1[0])#here's the name of pickle data file of CECT small subvolumes
+data_file = op_join(data_dir, parameters_demo[0])#here's the name of pickle data file of CECT small subvolumes
 
 with open(data_file, 'rb') as f:
     d = SEG.pickle.load(f, encoding='iso-8859-1')
@@ -127,7 +144,7 @@ else:
 
 # Segmentation prediction on new data
 data_dir = os.getcwd()  # This should be the new data for prediction
-data_file = op_join(data_dir, parameters1[0])
+data_file = op_join(data_dir, parameters_demo[0])
 with open(data_file, 'rb') as f:
     d = SEG.pickle.load(f, encoding='iso-8859-1')
 
