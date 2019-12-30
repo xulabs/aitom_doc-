@@ -1,6 +1,6 @@
 The demo single particle tomogram can be downloaded from: https://cmu.box.com/s/9hn3qqtqmivauus3kgtasg5uzlj53wxp.
 
-!['particle_picking_result.png'](https://github.com/xulabs/aitom_doc/blob/master/tutorials/008_particle_picking/particle_picking_result.png) 
+!['particle_picking_result.png'](https://user-images.githubusercontent.com/17937329/71565767-ef2ae380-2a7f-11ea-9735-c9007a2553dc.png) 
 
 'particle_picking_result.png' shown above is the result under such conditions:
 
