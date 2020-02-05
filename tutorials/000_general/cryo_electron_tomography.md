@@ -18,4 +18,4 @@
 
 
 
-<img src="https://en.wikipedia.org/wiki/File:Electron_Tomography.tif">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Electron_Tomography.tif/lossy-page1-340px-Electron_Tomography.tif.jpg">
