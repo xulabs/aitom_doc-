@@ -1,5 +1,5 @@
 ## Introduction
-Three.js is a cross-browser JavaScript library and Application Programming Interface used to create and display animated 3D computer graphics in a web browser. (https://threejs.org/) We designed a [CryoEM render](https://github.com/xulabs/aitom/tree/master/aitom/pick/plot/particle_location_display__three_js) for displaying 3D CryoEM image in web browser.
+Three.js is a cross-browser JavaScript library and Application Programming Interface used to create and display animated 3D computer graphics in a web browser. (https://threejs.org/) We designed a [CryoEM render](https://github.com/xulabs/aitom/tree/master/aitom/pick/plot/particle_location_display__three_js) for displaying 3D CryoEM image.
 
 ![image](https://user-images.githubusercontent.com/25089434/73971181-6871ed80-48ec-11ea-8778-462f81f673ec.png)
 
