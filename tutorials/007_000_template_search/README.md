@@ -28,9 +28,7 @@ The generate_all_rotation_angles(increment) function generates all the ZYZ rotat
 ## Tutorial Outline
 1. Generate job_file.p by running generate_job_file.py. The input parameters can be changed in generate_job_file.py. For a description of the input parameters, see Input File and Parameters.
 2. Run template_matching_demo.py:  
-'''
 python3 \<filepath\>/template_matching_demo.py \<filepath\>/job_file.p   
-'''
 Inside template_matching_demo.py, the steps for template matching are:
   * load the template (demo_template.rec) and the map (demo_map.rec)
   * preprocess the template (see code, can be customized)
@@ -48,7 +46,7 @@ id-c.npy is the correlation matrix. id-phi.npy, id-psi.npy, id-theta.npy are the
 
 
 ## Example Results
-Example output files can be downloaded from https://www.dropbox.com/sh/hit8034u4m0ohkg/AACzdot8OUS-oc28JhlmHqOfa?dl=0. 
+Example output files can be downloaded from https://www.dropbox.com/sh/hit8034u4m0ohkg/AACzdot8OUS-oc28JhlmHqOfa?dl=0.   
 A visualization of the correlation matrix (view_corr.py):
 ![image info](./results/c_max_30_degree_rotation.png)
 
